@@ -10,7 +10,7 @@ public class ExampleApplication {
 	public static void main(String[] args) {
 		var ctx = SpringApplication.run(ExampleApplication.class, args);
 
-		HelloBean helloBean = ctx.getBean("helloBean",HelloBean.class);
+		HelloBean helloBean = ctx.getBean("myBean",HelloBean.class);
 		HelloComponent helloComponent = ctx.getBean(HelloComponent.class);
 		HelloService helloService = ctx.getBean(HelloService.class);
 
