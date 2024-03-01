@@ -8,8 +8,6 @@ public class DependencyInjectionApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DependencyInjectionApplication.class, args);
-		PenController penController = new PenController(new BlackPen());
-		System.out.println(penController.write());
 	}
 
 }

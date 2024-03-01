@@ -1,8 +1,8 @@
 package com.mahmud.dependencyinjection;
 
-public class BlackPen implements Pen{
+public class RedPen implements Pen {
     @Override
     public String write() {
-        return "writing black text";
+        return "writing red text";
     }
 }
