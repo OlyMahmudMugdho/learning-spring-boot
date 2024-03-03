@@ -17,5 +17,15 @@ public class ConfigurationApplication implements CommandLineRunner {
 
 	}
 
-
+	@Override
+	public void run(String... args) {
+		final ChotpotiConfig chotpotiConfig = new ChotpotiConfig("simple","chilli","sweet");
+		log.info(
+				String.format("I want a %s chotpoti with %s sauce and %s spice",
+						chotpotiConfig.getFlavour(),
+						chotpotiConfig.getSauce(),
+						chotpotiConfig.getSpice()
+						)
+		);
+	}
 }
