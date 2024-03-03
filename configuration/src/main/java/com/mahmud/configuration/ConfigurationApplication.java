@@ -10,16 +10,21 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ConfigurationApplication implements CommandLineRunner {
 
+	ChotpotiConfig chotpotiConfig;
+
+	ConfigurationApplication(ChotpotiConfig chotpotiConfig){
+		this.chotpotiConfig = chotpotiConfig;
+	}
+
 	private static final Logger log = LoggerFactory.getLogger(ConfigurationApplication.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(ConfigurationApplication.class, args);
-
 	}
 
 	@Override
 	public void run(String... args) {
-		final ChotpotiConfig chotpotiConfig = new ChotpotiConfig("simple","chilli","sweet");
+		// final ChotpotiConfig chotpotiConfig = new ChotpotiConfig("simple","chilli","sweet");
 		log.info(
 				String.format("I want a %s chotpoti with %s sauce and %s spice",
 						chotpotiConfig.getFlavour(),
