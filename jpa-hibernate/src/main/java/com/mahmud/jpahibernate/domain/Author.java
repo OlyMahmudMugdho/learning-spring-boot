@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 @Data
 @AllArgsConstructor
@@ -15,11 +16,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 @Table(name = "author")
-
+@Component
 public class Author {
     @Id
     @GeneratedValue
-    private String id;
+    private Long id;
 
     private String name;
     private int age;
