@@ -5,6 +5,8 @@ import com.mahmud.REST.API.learning.repository.AuthorRepository;
 import com.mahmud.REST.API.learning.services.AuthorService;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class AuthorServiceImpl implements AuthorService {
     AuthorRepository authorRepository;
@@ -14,8 +16,8 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public AuthorEntity getAuthor(long id) {
-        return null;
+    public Optional<AuthorEntity> getAuthor(long id) {
+        return authorRepository.findById(id);
     }
 
     @Override
