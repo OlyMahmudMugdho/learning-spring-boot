@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: basic-inventory-api
+  datasource:
+    username: postgres
+    password: mysecretpassword
+    url: jdbc:postgresql://localhost:5432/products-api
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
