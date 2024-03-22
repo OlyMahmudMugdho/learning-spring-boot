@@ -29,10 +29,17 @@ public class UserController {
         return "user";
     }
 
-    @PostMapping("/add")
-    public String addUser(@ModelAttribute User user) {
+    @GetMapping("/add")
+    public String addUserPage(Model model) {
+        model.addAttribute("user", new User());
+        return "userForm";
+    }
+
+    @PostMapping("/add-user")
+    public String addUser(@ModelAttribute("user") User user) {
+        System.out.println(user);
         users.add(user);
-        return "redirect:/home/user";
+        return "redirect:/users";
     }
 
 
