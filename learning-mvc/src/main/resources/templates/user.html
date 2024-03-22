@@ -1,8 +1,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" href="/static/userStyles.css">
+<head>
+    <link rel="stylesheet" th:href="@{/styles/userStyles.css}">
+</head>
 <body>
 
-<div>
+<div class="container">
     <h1>Details of the Users</h1>
     <table>
         <tr>
