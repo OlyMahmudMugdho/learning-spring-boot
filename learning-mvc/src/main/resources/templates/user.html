@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div>
+    <h1>Details of the Users</h1>
+    <table>
+        <tr>
+            <th>user ID</th>
+            <th>Name</th>
+            <th>E-mail</th>
+        </tr>
+        <tr th:each="user : ${userList}">
+            <td th:text="${user.getId()}"></td>
+            <td th:text="${user.getName()}"></td>
+            <td th:text="${user.getEmail()}"></td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
