@@ -4,3 +4,9 @@ div {
     align-items: center;
     flex-direction: column;
 }
+
+
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
