@@ -4,7 +4,12 @@ div {
     align-items: center;
     flex-direction: column;
 }
-
+tr,td, th {
+    text-align: center;
+    padding: 0 1rem;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
 
 table {
     border-collapse: collapse;
