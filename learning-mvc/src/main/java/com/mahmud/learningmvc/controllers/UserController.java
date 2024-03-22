@@ -20,8 +20,11 @@ public class UserController {
     @GetMapping("")
     public String usersPage(Model model) {
 
-        users.add(new User(1,"mila","Meftahul Jannat Mila","mila@gmail.com"));
-        users.add(new User(2,"mugdho","M. Oly Mahmud","mugdho@gmail.com"));
+        if(users.isEmpty()) {
+            users.add(new User(1,"mila","Meftahul Jannat Mila","mila@gmail.com"));
+            users.add(new User(2,"mugdho","M. Oly Mahmud","mugdho@gmail.com"));
+        }
+
         model.addAttribute("userList",users);
         return "user";
     }
