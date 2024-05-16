@@ -1,0 +1,46 @@
+server:
+  port: 9000
+
+logging:
+  level:
+    org.springframework.security: trace
+
+
+spring:
+  application:
+    name: oauth2-custom
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: mysecretpassword
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  security:
+    user:
+      name: user
+      password: password
+    oauth2:
+      authorizationserver:
+        client:
+          oidc-client:
+            registration:
+              client-id: "oidc-client"
+              client-secret: "{noop}secret"
+              client-authentication-methods:
+                - "client_secret_basic"
+              authorization-grant-types:
+                - "authorization_code"
+                - "refresh_token"
+              redirect-uris:
+                - "http://127.0.0.1:8080/login/oauth2/code/oidc-client"
+                - "http://127.0.0.1:8080/authorized"
+              post-logout-redirect-uris:
+                - "http://127.0.0.1:8080/"
+              scopes:
+                - "openid"
+                - "profile"
+            require-authorization-consent: true
+
