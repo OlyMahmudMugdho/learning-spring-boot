@@ -20,17 +20,14 @@ public class Oauth2CustomApplication {
 
 	private final RoleRepository roleRepository;
 	private final UserRepository userRepository;
+	@Autowired
 	private PasswordEncoder passwordEncoder;
-
-	@Bean PasswordEncoder createPasswordEncoder(){
-		passwordEncoder = new BCryptPasswordEncoder();
-		return passwordEncoder;
-	}
 
 	@Autowired
     public Oauth2CustomApplication(RoleRepository roleRepository, UserRepository userRepository) {
         this.roleRepository = roleRepository;
 		this.userRepository = userRepository;
+
     }
 
     public static void main(String[] args) {
