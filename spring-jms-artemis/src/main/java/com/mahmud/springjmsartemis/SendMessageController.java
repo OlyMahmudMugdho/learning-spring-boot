@@ -13,7 +13,13 @@ public class SendMessageController {
 
     @GetMapping("/send")
     public String sendSomething(){
-        jmsMessagingService.sendMessage("Random");
+        jmsMessagingService.sendMessage(new CustomMessage("random-text"));
         return "message sent";
+    }
+
+    @GetMapping("/receieve")
+    public String receiveSomething() throws Exception {
+        String msg = jmsMessagingService.receiveMessage();
+        return msg;
     }
 }
