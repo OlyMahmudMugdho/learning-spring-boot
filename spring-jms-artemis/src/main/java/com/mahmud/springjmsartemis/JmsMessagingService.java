@@ -15,12 +15,12 @@ import org.springframework.stereotype.Service;
 @Component
 public class JmsMessagingService  {
     private JmsTemplate jmsTemplate;
-    private MessageConverter converter;
+    //private MessageConverter converter;
 
     @Autowired
     public JmsMessagingService(JmsTemplate jmsTemplate, MessageConverter converter) {
         this.jmsTemplate = jmsTemplate;
-        this.converter = converter;
+        //this.converter = converter;
     }
 
 
