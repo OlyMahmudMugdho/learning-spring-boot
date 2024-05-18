@@ -17,7 +17,7 @@ public class SendMessageController {
         return "message sent";
     }
 
-    @GetMapping("/receieve")
+    @GetMapping("/receive")
     public String receiveSomething() throws Exception {
         String msg = jmsMessagingService.receiveMessage();
         return msg;
