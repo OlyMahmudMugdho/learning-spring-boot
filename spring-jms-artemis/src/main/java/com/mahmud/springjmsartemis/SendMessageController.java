@@ -1,5 +1,6 @@
 package com.mahmud.springjmsartemis;
 
+import org.springframework.jms.annotation.JmsListener;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +20,13 @@ public class SendMessageController {
 
     @GetMapping("/receive")
     public String receiveSomething() throws Exception {
+        String msg = jmsMessagingService.receiveMessage();
+        return msg;
+    }
+
+    @GetMapping("/listen")
+    @JmsListener(destination = "tcp://localhost:61616")
+    public String listenSomething() throws Exception {
         String msg = jmsMessagingService.receiveMessage();
         return msg;
     }
