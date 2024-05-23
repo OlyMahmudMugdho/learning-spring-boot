@@ -24,7 +24,7 @@ public class FileWriterIntegrationConfiguration {
     @Bean
     @ServiceActivator(inputChannel = "fileWriterChannel")
     public FileWritingMessageHandler fileWriter() {
-        FileWritingMessageHandler handler = new FileWritingMessageHandler(new File("/home/$USER/temp/files"));
+        FileWritingMessageHandler handler = new FileWritingMessageHandler(new File("/home/mugdho/temp/files"));
         handler.setExpectReply(false);
         handler.setFileExistsMode(FileExistsMode.APPEND);
         handler.setAppendNewLine(true);
