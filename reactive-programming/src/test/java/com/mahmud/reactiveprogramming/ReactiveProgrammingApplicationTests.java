@@ -34,5 +34,6 @@ class ReactiveProgrammingApplicationTests {
         nameFlux.subscribe(
                 name -> System.out.println(name)
         );
+
     }
 }
