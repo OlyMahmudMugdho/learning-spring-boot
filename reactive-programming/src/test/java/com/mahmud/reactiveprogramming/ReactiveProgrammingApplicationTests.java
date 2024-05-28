@@ -5,6 +5,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import reactor.core.publisher.Flux;
 import reactor.test.StepVerifier;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @SpringBootTest
 class ReactiveProgrammingApplicationTests {
 
@@ -40,5 +43,19 @@ class ReactiveProgrammingApplicationTests {
                 .expectNext("Meghla")
                 .expectNext("Mugdho")
                 .verifyComplete();
+    }
+
+    @Test
+    public void fluxFromIterable(){
+        List<String> departments = new ArrayList<>();
+        departments.add("IT");
+        departments.add("MSE");
+        departments.add("CSE");
+
+        Flux<String> deptFlux = Flux.fromIterable(departments);
+
+        deptFlux.subscribe(
+                dept -> System.out.println(dept)
+        );
     }
 }
