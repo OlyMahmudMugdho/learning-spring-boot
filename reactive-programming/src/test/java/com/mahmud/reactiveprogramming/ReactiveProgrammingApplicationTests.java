@@ -35,5 +35,10 @@ class ReactiveProgrammingApplicationTests {
                 name -> System.out.println(name)
         );
 
+        StepVerifier.create(nameFlux)
+                .expectNext("Mila")
+                .expectNext("Meghla")
+                .expectNext("Mugdho")
+                .verifyComplete();
     }
 }
