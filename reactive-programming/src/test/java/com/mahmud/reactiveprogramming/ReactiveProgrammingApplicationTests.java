@@ -26,4 +26,13 @@ class ReactiveProgrammingApplicationTests {
                 .expectNext("Banana")
                 .verifyComplete();
     }
+
+    @Test
+    public void fluxFromArray() {
+        String[] names = {"Mila","Meghla","Mugdho"};
+        Flux<String> nameFlux =  Flux.fromArray(names);
+        nameFlux.subscribe(
+                name -> System.out.println(name)
+        );
+    }
 }
