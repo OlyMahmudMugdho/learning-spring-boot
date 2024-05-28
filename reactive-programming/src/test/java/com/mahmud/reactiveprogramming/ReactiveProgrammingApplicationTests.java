@@ -3,6 +3,7 @@ package com.mahmud.reactiveprogramming;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import reactor.core.publisher.Flux;
+import reactor.test.StepVerifier;
 
 @SpringBootTest
 class ReactiveProgrammingApplicationTests {
@@ -18,5 +19,11 @@ class ReactiveProgrammingApplicationTests {
         fruitFlux.subscribe(
                 f -> System.out.println("Fruit name : " + f)
         );
+
+        StepVerifier.create(fruitFlux)
+                .expectNext("Apple")
+                .expectNext("Mango")
+                .expectNext("Banana")
+                .verifyComplete();
     }
 }
