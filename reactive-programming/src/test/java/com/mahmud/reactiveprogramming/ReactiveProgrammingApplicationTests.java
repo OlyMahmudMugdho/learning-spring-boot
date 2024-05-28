@@ -54,8 +54,11 @@ class ReactiveProgrammingApplicationTests {
 
         Flux<String> deptFlux = Flux.fromIterable(departments);
 
-        deptFlux.subscribe(
-                dept -> System.out.println(dept)
-        );
+
+        StepVerifier.create(deptFlux)
+                .expectNext("IT")
+                .expectNext("MSE")
+                .expectNext("CSE")
+                .verifyComplete();
     }
 }
