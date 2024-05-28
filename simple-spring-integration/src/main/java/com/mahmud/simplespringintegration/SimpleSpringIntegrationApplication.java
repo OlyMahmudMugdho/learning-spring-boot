@@ -20,6 +20,6 @@ public class SimpleSpringIntegrationApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        fileWriterGateway.writeToFile("test.txt", "ok");
+        fileWriterGateway.writeToFile("test.txt", "success");
     }
 }
