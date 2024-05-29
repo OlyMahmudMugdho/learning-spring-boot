@@ -28,5 +28,8 @@ public class UserInfoService implements UserDetailsService {
         throw new UsernameNotFoundException("User not found");
     }
 
+    public User addUser(User user){
+        return userRepository.save(user);
+    }
 
 }
