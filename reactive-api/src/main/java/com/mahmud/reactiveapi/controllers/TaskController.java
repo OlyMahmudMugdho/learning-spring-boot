@@ -20,6 +20,12 @@ public class TaskController {
     }
 
 
+    @GetMapping
+    public Flux<List<Todo>> getAllTasks() {
+        List<Todo> allTodos = tasks.getTodos();
+        return Flux.just(allTodos);
+    }
+
     @PostMapping
     public Mono<Todo> createTask(@RequestBody Todo task) {
         tasks.addTodo(task);
