@@ -5,6 +5,7 @@ import com.mahmud.jwtpracticetwo.services.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -38,8 +39,10 @@ public class SecurityConfig {
 
 
     @Bean
+    @Order(1)
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
+                .securityMatcher("/auth/**")
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/auth/welcome", "/auth/addNewUser", "/auth/generateToken").permitAll())
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/auth/user/**").authenticated())
@@ -48,6 +51,25 @@ public class SecurityConfig {
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
+    }
+
+
+    @Bean
+    @Order(2)
+    public SecurityFilterChain formLoginSecurityFilterChain(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity.
+                csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(req -> req.requestMatchers("/login/**").permitAll()
+                        .requestMatchers("/error").permitAll()
+                        .anyRequest().authenticated()
+                ).formLogin((form) ->form
+                        .loginPage("/login")
+                        .loginProcessingUrl("/login")
+                        .defaultSuccessUrl("/user/")
+                        .permitAll()
+                )
+                .logout((logout) -> logout.permitAll());
+        return httpSecurity.build();
     }
 
     @Bean
