@@ -8,6 +8,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/tasks")
@@ -30,5 +31,10 @@ public class TaskController {
     public Mono<Todo> createTask(@RequestBody Todo task) {
         tasks.addTodo(task);
         return Mono.just(task);
+    }
+
+    @GetMapping("{id}")
+    public Mono<Todo> getTask(@PathVariable int id) {
+        return Mono.just(tasks.getTodos().stream().filter(t -> t.getId() == id).toList().getFirst());
     }
 }
