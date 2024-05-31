@@ -3,6 +3,7 @@ package com.mahmud.reactiveapi.controllers;
 import com.mahmud.reactiveapi.entity.Todo;
 import com.mahmud.reactiveapi.model.Tasks;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -33,7 +34,13 @@ public class TaskController {
     }
 
     @GetMapping("{id}")
-    public Mono<Todo> getTask(@PathVariable int id) {
-        return Mono.just(tasks.getTodos().stream().filter(t -> t.getId() == id).toList().getFirst());
+    public ResponseEntity<Mono<Todo>> getTask(@PathVariable int id) {
+        List<Todo> todos = tasks.getTodos().stream().filter(todo -> todo.getId() == id).toList();
+
+        if (todos.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        Mono<Todo> todo =  Mono.justOrEmpty(tasks.getTodos().stream().filter(t -> t.getId() == id).toList().getFirst());
+        return ResponseEntity.ok(todo);
     }
 }
