@@ -43,4 +43,7 @@ public class TaskController {
         Mono<Todo> todo =  Mono.justOrEmpty(tasks.getTodos().stream().filter(t -> t.getId() == id).toList().getFirst());
         return ResponseEntity.ok(todo);
     }
+
+    @DeleteMapping("{id}")
+    public
 }
