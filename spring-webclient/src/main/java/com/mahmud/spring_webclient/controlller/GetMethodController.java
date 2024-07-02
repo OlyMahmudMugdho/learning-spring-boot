@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestClient;
 
+import java.net.URI;
 import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -21,6 +22,7 @@ import java.net.http.HttpRequest;
 @RequestMapping("/")
 public class GetMethodController {
     private final String url = "http://localhost:3000";
+
 
     @GetMapping("/get")
     public ResponseEntity<JsonNode> performGetOperation() throws JsonProcessingException {
@@ -33,6 +35,16 @@ public class GetMethodController {
         JsonNode json = mapper.readTree(result);
 
         return new ResponseEntity<>(json,HttpStatus.OK);
+    }
+
+    @GetMapping("/post")
+    public JsonNode performPostOperation() {
+        RestClient restClient = RestClient.create();
+        JsonNode result = restClient
+                .post()
+                .uri(url + "/pend" + "/1" + "?q=something")
+                .retrieve().body(JsonNode.class);
+        return result;
     }
 
 }
