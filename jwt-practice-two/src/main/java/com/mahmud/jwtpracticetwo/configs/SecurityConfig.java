@@ -22,7 +22,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig {
-
+    // this is the project to combine spring REST + MVC Thymeleaf combined project
     @Autowired
     private JwtAuthFilter jwtAuthFilter;
 
