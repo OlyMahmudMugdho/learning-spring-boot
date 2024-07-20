@@ -19,6 +19,5 @@ public class Course {
     )
     private String name;
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
-    @JsonIgnore
     private Teacher teacher;
 }
