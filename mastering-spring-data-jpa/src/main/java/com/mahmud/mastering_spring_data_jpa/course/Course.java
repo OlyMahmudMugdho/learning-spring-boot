@@ -13,8 +13,12 @@ public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer courseId;
-    private String courseName;
-    @ManyToOne()
+    @Column(
+            nullable = false,
+            name = "courseName"
+    )
+    private String name;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @JsonIgnore
     private Teacher teacher;
 }
