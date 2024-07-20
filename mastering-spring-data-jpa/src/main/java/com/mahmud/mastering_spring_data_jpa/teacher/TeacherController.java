@@ -1,9 +1,8 @@
 package com.mahmud.mastering_spring_data_jpa.teacher;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/teacher")
@@ -14,7 +13,12 @@ public class TeacherController {
         this.teacherRepository = teacherRepository;
     }
 
-    @PostMapping("")
+    @GetMapping
+    public List<Teacher> getTeachers(){
+        return teacherRepository.findAll();
+    }
+
+    @PostMapping()
     public Teacher createTeacher(@RequestBody Teacher teacher) {
         return teacherRepository.save(teacher);
     }
