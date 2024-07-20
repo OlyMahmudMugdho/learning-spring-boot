@@ -17,7 +17,7 @@ public class Teacher {
     private Integer id;
     private String name;
     private String username;
-    @OneToMany(mappedBy = "teacher")
+    @OneToMany(mappedBy = "teacher", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @JsonIgnore
     private List<Course> courses;
 }
