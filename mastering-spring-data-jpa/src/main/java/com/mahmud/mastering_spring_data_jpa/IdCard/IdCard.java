@@ -1,4 +1,4 @@
-package com.mahmud.mastering_spring_data_jpa;
+package com.mahmud.mastering_spring_data_jpa.IdCard;
 
 import com.mahmud.mastering_spring_data_jpa.student.Student;
 import jakarta.persistence.*;
