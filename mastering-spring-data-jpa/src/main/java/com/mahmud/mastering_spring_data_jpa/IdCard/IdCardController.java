@@ -1,9 +1,8 @@
 package com.mahmud.mastering_spring_data_jpa.IdCard;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/id-card")
@@ -12,6 +11,11 @@ public class IdCardController {
 
     public IdCardController(IdCardRepository idCardRepository) {
         this.idCardRepository = idCardRepository;
+    }
+
+    @GetMapping
+    public List<IdCard> getIdCards() {
+        return idCardRepository.findAll();
     }
 
     @PostMapping
