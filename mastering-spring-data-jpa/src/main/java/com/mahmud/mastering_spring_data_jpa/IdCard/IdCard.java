@@ -15,7 +15,7 @@ public class IdCard {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "card_number")
     private Long cardNo;
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE, optional = false)
     @JoinColumn(name = "student_id")
     private Student student;
 }
