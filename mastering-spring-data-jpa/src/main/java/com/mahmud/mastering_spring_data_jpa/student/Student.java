@@ -1,6 +1,6 @@
 package com.mahmud.mastering_spring_data_jpa.student;
 
-import com.mahmud.mastering_spring_data_jpa.IdCard;
+import com.mahmud.mastering_spring_data_jpa.IdCard.IdCard;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
