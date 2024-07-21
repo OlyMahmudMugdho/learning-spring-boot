@@ -1,5 +1,7 @@
 package com.mahmud.mastering_spring_data_jpa.student;
 
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,5 +12,10 @@ public class StudentController {
 
     public StudentController(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
+    }
+
+    @PostMapping
+    public Student createStudent(@RequestBody Student student) {
+        return studentRepository.save(student);
     }
 }
