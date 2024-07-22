@@ -14,4 +14,9 @@ public class VideoController {
         this.videoRepository = videoRepository;
     }
 
+    @PostMapping
+    public Video createVideo(@RequestBody Video video){
+        return videoRepository.save(video);
+    }
+
 }
