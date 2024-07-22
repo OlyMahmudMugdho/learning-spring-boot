@@ -2,11 +2,9 @@ package com.mahmud.mastering_spring_data_jpa.resource;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
-
 import java.time.LocalDateTime;
 
 @Data
@@ -14,6 +12,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @MappedSuperclass
 @SuperBuilder
+
+
 public class Resource {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,6 +23,6 @@ public class Resource {
 
     @Column(insertable = false)
     private LocalDateTime updatedAt;
-    @Column(updatable = false)
+    @Column(updatable = false, nullable = false)
     private LocalDateTime createdAt;
 }
