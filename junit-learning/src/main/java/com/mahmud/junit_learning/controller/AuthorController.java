@@ -1,9 +1,27 @@
 package com.mahmud.junit_learning.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.mahmud.junit_learning.model.Author;
+import com.mahmud.junit_learning.service.AuthorService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/api/authors")
+@RequestMapping("/api/author")
 public class AuthorController {
+    private final AuthorService authorService;
+
+    public AuthorController(AuthorService authorService) {
+        this.authorService = authorService;
+    }
+
+    @GetMapping
+    public List<Author> getAllAuthors() {
+        return authorService.getAuthors();
+    }
+
+    @PostMapping
+    public Author addAuthor(@RequestBody Author author) {
+        return authorService.addAuthor(author);
+    }
 }
