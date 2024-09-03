@@ -1,0 +1,12 @@
+### Get All Authors
+GET http://localhost:8080/api/author
+
+### Add Author
+POST http://localhost:8080/api/author
+Content-Type: application/json
+
+{
+ "id" : 1,
+  "name" : "M. Oly Mahmud",
+  "books": []
+}

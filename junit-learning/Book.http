@@ -1,0 +1,14 @@
+### Get all books
+GET http://localhost:8080/api/book
+
+### Add a book
+POST http://localhost:8080/api/book
+Content-Type: application/json
+
+{
+  "id" : 1,
+  "title": "A random book name",
+  "author": {
+    "id": 1
+  }
+}
