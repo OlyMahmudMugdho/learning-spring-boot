@@ -3,6 +3,7 @@ package com.mahmud.junit_learning;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -32,6 +33,12 @@ class JunitLearningApplicationTests {
 	@Test
 	void sample2(){
 		log.info("sample test 2");
+	}
+
+	@DisplayName("for displaying custom test name")
+	@Test
+	void displayingName(){
+		log.info("displaying name test");
 	}
 
 }
