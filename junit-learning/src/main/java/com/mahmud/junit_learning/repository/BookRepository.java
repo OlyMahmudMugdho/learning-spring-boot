@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Repository
 public class BookRepository {
@@ -28,6 +29,10 @@ public class BookRepository {
         }
         return null;
     }
+
+    public List<Book> findBooksByAuthor(Long authorId) {
+        return books.stream().filter(Objects::nonNull).filter(book -> book.getAuthor().getId().equals(authorId)).toList();
+    }
     
     public Book update(Book book) {
         Book foundBook = findById(book.getId());
@@ -39,14 +44,8 @@ public class BookRepository {
         return foundBook;
     }
     
-    public Book delete(Long id) {
-        for (Book book : books) {
-            if (Objects.equals(book.getId(), id)) {
-                books.remove(book);
-                return book;
-            }
-        }
-        return null;
+    public void delete(Long id) {
+        books.removeIf(book -> Objects.equals(book.getId(), id));
     }
     
 }
