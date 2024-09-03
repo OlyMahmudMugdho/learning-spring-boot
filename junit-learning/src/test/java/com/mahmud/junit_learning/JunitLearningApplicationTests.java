@@ -1,10 +1,7 @@
 package com.mahmud.junit_learning;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @Slf4j
@@ -41,4 +38,9 @@ class JunitLearningApplicationTests {
 		log.info("displaying name test");
 	}
 
+	@Disabled("this test is not implemented yet")
+	@Test
+	void disabledTest(){
+		log.info("disabled test");
+	}
 }
