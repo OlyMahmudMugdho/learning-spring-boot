@@ -22,6 +22,17 @@ class JunitLearningApplicationTests {
 		log.info("this method runs before every tests");
 	}
 
+	@AfterEach
+	void tearDown(){
+		log.info("this method runs after every tests");
+	}
+
+	@AfterAll
+	static void tearDownAll(){
+		log.info("tear down all tests");
+	}
+
+
 	@Test
     void sample(){
 		log.info("sample test");
