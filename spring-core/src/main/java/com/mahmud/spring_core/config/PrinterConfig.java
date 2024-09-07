@@ -1,10 +1,12 @@
 package com.mahmud.spring_core.config;
 
 import com.mahmud.spring_core.printer.Printer;
+import com.mahmud.spring_core.printer.impl.BlackPrinter;
 import com.mahmud.spring_core.printer.impl.BluePrinter;
 import com.mahmud.spring_core.printer.impl.RedPrinter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class PrinterConfig {
@@ -16,6 +18,12 @@ public class PrinterConfig {
     @Bean
     public Printer redPrinter() {
         return new RedPrinter();
+    }
+
+    @Bean
+    @Primary
+    public Printer blackPrinter() {
+        return new BlackPrinter();
     }
 
 }
