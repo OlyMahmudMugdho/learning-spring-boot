@@ -8,7 +8,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class PrinterConfig {
     @Bean
-    public Printer myPrinter() {
+    public Printer bluePrinter() {
         return new BluePrinter();
     }
+
 }
