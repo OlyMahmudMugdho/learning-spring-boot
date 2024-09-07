@@ -2,8 +2,6 @@ package com.mahmud.spring_core;
 
 import com.mahmud.spring_core.config.PrinterConfig;
 import com.mahmud.spring_core.printer.Printer;
-import com.mahmud.spring_core.printer.impl.BluePrinter;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
