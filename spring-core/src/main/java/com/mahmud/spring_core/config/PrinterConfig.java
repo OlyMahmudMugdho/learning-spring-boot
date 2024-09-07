@@ -4,6 +4,7 @@ import com.mahmud.spring_core.printer.Printer;
 import com.mahmud.spring_core.printer.impl.BlackPrinter;
 import com.mahmud.spring_core.printer.impl.BluePrinter;
 import com.mahmud.spring_core.printer.impl.RedPrinter;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -20,7 +21,7 @@ public class PrinterConfig {
         return new RedPrinter();
     }
 
-    @Bean
+    @Bean(name = "defaultPrinter")
     @Primary
     public Printer blackPrinter() {
         return new BlackPrinter();
