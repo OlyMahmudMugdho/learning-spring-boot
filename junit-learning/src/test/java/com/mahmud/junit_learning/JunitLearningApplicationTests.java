@@ -5,6 +5,7 @@ import org.junit.jupiter.api.*;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 @Slf4j
 @SpringBootTest
@@ -71,4 +72,11 @@ class JunitLearningApplicationTests {
 				() -> assertEquals(9,nums[2])
 		);
 	}
+
+	@Test
+	void trueAssumption(){
+		assumeTrue(5 > 2);
+		assertEquals(5,5);
+	}
+
 }
