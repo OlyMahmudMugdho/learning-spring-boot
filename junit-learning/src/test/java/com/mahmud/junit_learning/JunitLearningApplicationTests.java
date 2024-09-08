@@ -90,4 +90,15 @@ class JunitLearningApplicationTests {
 		);
 	}
 
+	@Test
+	void exceptionTesting() {
+		Throwable exception = assertThrows(
+				UnsupportedOperationException.class,
+				() -> {
+					throw new UnsupportedOperationException("not supported");
+				}
+		);
+		assertEquals("not supported", exception.getMessage());
+	}
+
 }
