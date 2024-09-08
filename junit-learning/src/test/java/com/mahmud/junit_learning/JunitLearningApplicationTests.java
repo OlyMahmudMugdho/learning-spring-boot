@@ -4,6 +4,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.*;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 @Slf4j
 @SpringBootTest
 class JunitLearningApplicationTests {
@@ -53,5 +56,11 @@ class JunitLearningApplicationTests {
 	@Test
 	void disabledTest(){
 		log.info("disabled test");
+	}
+
+	@Test
+	void assertingEquals(){
+		double pi = 3.14;
+        assertEquals(3.14, pi, () -> "pi should be equal to 3.14");
 	}
 }
