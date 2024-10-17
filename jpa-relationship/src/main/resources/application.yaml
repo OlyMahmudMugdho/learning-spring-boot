@@ -6,4 +6,4 @@ spring:
     username: postgres
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
