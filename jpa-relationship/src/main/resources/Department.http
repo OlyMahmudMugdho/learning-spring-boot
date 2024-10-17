@@ -1,0 +1,8 @@
+### Create a department
+POST http://localhost:8080/api/department/
+Content-Type: application/json
+
+{
+  "departmentId": 1,
+  "departmentName": "ICE"
+}
