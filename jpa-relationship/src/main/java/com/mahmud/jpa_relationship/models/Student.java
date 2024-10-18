@@ -1,9 +1,6 @@
 package com.mahmud.jpa_relationship.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,6 +11,10 @@ import lombok.NoArgsConstructor;
 @Data
 public class Student {
     @Id
+    @GeneratedValue(
+            strategy = GenerationType.AUTO
+    )
+    @Column(name = "student_id")
     private Integer studentId;
     private String firstName;
     private String lastName;
