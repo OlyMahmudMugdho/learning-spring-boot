@@ -1,0 +1,14 @@
+### create an account
+POST http://localhost:8080/api/account/
+Content-Type: application/json
+
+{
+  "id": 1,
+  "type": "student",
+  "name": "M. Oly Mahmud",
+  "studentId": {
+    "studentId": 1
+  }
+}
+
+###
