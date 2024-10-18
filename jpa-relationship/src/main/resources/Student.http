@@ -3,7 +3,6 @@ POST http://localhost:8080/api/student/
 Content-Type: application/json
 
 {
-  "studentId": 1,
   "firstName": "M. Oly",
   "lastName": "Mahmud",
   "department": {
