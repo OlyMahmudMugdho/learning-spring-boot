@@ -18,5 +18,3 @@
 
 #### Many-to-Many:
  - Student and Course : One student has many courses. One courses has many students.
-
-#### I didn't add `One-to-Many` because it\'s the inverse of `Many-to-One`  
