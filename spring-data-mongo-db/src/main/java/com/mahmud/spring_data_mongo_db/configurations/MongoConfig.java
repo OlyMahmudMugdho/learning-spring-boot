@@ -4,31 +4,23 @@ import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.mongodb.config.AbstractMongoClientConfiguration;
-
-import java.util.Collection;
-import java.util.Collections;
+import org.springframework.data.mongodb.core.MongoTemplate;
 
 @Configuration
-public class MongoConfig extends AbstractMongoClientConfiguration {
-    @Override
-    protected String getDatabaseName() {
-        return "test";
-    }
-
-    @Override
-    protected Collection getMappingBasePackages() {
-        return Collections.singleton("com.mahmud.spring_data_mongo_db");
-    }
-
-    @Override
+public class MongoConfig {
+    @Bean
     public MongoClient mongoClient() {
         ConnectionString connectionString = new ConnectionString("mongodb://localhost:27017/test");
-        MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
+        MongoClientSettings clientSettings = MongoClientSettings.builder()
                 .applyConnectionString(connectionString)
                 .build();
-        return MongoClients.create(mongoClientSettings);
+        return MongoClients.create(clientSettings);
     }
 
+    @Bean
+    public MongoTemplate mongoTemplate() throws Exception {
+        return new MongoTemplate(mongoClient(), "test");
+    }
 }
