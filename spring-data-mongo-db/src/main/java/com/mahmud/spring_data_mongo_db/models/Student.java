@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Student {
+    private String _id;
     private String name;
     private Integer roll;
 }
