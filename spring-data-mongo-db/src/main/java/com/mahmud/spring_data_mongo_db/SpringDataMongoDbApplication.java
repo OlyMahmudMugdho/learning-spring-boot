@@ -8,6 +8,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @SpringBootApplication
@@ -23,6 +25,7 @@ public class SpringDataMongoDbApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringDataMongoDbApplication.class, args);
+		System.out.println("App started");
 	}
 
 	@Override
@@ -31,6 +34,13 @@ public class SpringDataMongoDbApplication implements CommandLineRunner {
 		student.setName("M. Oly Mahmud");
 		student.setRoll(210614);
 		mongoTemplate.save(student, "student");
+
+
+		student = mongoTemplate.findOne(Query.query(Criteria.where("roll").is(210614)), Student.class);
+		if (student != null) {
+			student.setRoll(14);
+			mongoTemplate.save(student, "student");
+		}
 	}
 }
 
