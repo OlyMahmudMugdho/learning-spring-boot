@@ -29,6 +29,7 @@ public class SpringDataMongoDbApplication implements CommandLineRunner {
 	public void run(String[] args) throws Exception {
 		Student student = new Student();
 		student.setName("M. Oly Mahmud");
+		student.setRoll(210614);
 		mongoTemplate.save(student, "student");
 	}
 }
